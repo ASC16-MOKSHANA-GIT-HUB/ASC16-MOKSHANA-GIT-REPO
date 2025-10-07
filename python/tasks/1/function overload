@@ -1,0 +1,19 @@
+def add(*args):
+    # If all are numbers (int or float)
+    if all(isinstance(x, (int, float)) for x in args):
+        return sum(args)
+    
+    # If any string is present
+    elif any(isinstance(x, str) for x in args):
+        return " ".join(str(x) for x in args)
+    
+    # Otherwise
+    else:
+        return "Unsupported data types"
+
+# Function calls
+print(add(10, 20))        
+print(add(10, 20, 30))   
+print(add(10.5, 20.1))  
+print(add("Hello", 20))   
+print(add("Hello", "World")) 

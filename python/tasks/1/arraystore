@@ -1,0 +1,48 @@
+class ArrayStore:
+    def __init__(self):
+        self.numbers = []
+
+    def accept_numbers(self):
+        print("Enter 10 integers:")
+        for i in range(10):
+            n = int(input(f"Enter number {i+1}: "))
+            self.numbers.append(n)
+
+    def display(self):
+        print("Using for loop:")
+        for n in self.numbers:
+            print(n, end=" ")
+        print("\nUsing while loop:")
+        i = 0
+        while i < len(self.numbers):
+            print(self.numbers[i], end=" ")
+            i += 1
+        print()
+
+    def sort_numbers(self):
+        self.numbers.sort()
+        print("Sorted list:", self.numbers)
+
+    def count_number(self, num):
+        return self.numbers.count(num)
+
+    def insert_at(self, pos, num):
+        self.numbers.insert(pos, num)
+
+    def get_unique(self):
+        unique = []
+        for n in self.numbers:
+            if n not in unique:
+                unique.append(n)
+        return unique
+
+
+# --- Test ---
+a = ArrayStore()
+a.numbers = [9, 2, 2, 9, 10, 9]
+a.display()
+a.sort_numbers()
+print("Count of 9:", a.count_number(9))
+a.insert_at(2, 5)
+print("After insert:", a.numbers)
+print("Unique elements:", a.get_unique())
